@@ -33,6 +33,7 @@ createApp ({
         'img/05.webp'
       ],
       counter: 0,
+      
     }
   },
 
@@ -48,5 +49,11 @@ createApp ({
         this.counter = this.posters.length -1;
       }
     }
+  },
+
+  mounted() {
+    setInterval(() => {
+      this.nextPrev(true);
+    }, 5000);
   }
 }).mount('#app')
