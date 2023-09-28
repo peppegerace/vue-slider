@@ -48,11 +48,21 @@ createApp ({
       } else if (this.counter < 0) {
         this.counter = this.posters.length -1;
       }
+    },
+
+    pauseAutoScroll() {
+      clearInterval(this.autoScrollInterval);
+    },
+
+    resumeAutoScroll() {
+      this.autoScrollInterval = setInterval(() => {
+        this.nextPrev(true);
+      }, 5000);
     }
   },
 
   mounted() {
-    setInterval(() => {
+    this.autoScrollInterval = setInterval(() => {
       this.nextPrev(true);
     }, 5000);
   }
